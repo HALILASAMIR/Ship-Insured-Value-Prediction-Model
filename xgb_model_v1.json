@@ -1,0 +1,122 @@
+{
+  "model_info": {
+    "name": "XGBoost Ship Value Prediction Model",
+    "version": "1.0.0",
+    "description": "Predicts insured value of ships based on technical and administrative characteristics",
+    "algorithm": "XGBRegressor",
+    "created_date": "2026-01-17",
+    "author": "Samir",
+    "language": "Python 3.x"
+  },
+  "performance_metrics": {
+    "r2_score": 0.7532,
+    "mae": 1718669.0,
+    "rmse": 2105450.0,
+    "reliability_percent": 92.0,
+    "cross_validation_score_mean": 0.7493,
+    "cross_validation_score_std": 0.0078
+  },
+  "dataset_info": {
+    "total_observations": 1200,
+    "observations_after_cleaning": 1100,
+    "observations_after_outlier_removal": 980,
+    "train_test_split_ratio": "80-20",
+    "training_samples": 784,
+    "test_samples": 196,
+    "input_shape": [7],
+    "target_variable": "Valeur_Assuree"
+  },
+  "features": {
+    "feature_names": [
+      "AGE",
+      "DWT",
+      "GRT",
+      "Puissance_Moteur",
+      "TYPE_ENCODED",
+      "is_IACS",
+      "PAYS_ENC"
+    ],
+    "feature_importance": {
+      "DWT": 0.352,
+      "AGE": 0.284,
+      "GRT": 0.186,
+      "Puissance_Moteur": 0.121,
+      "TYPE_ENCODED": 0.043,
+      "is_IACS": 0.012,
+      "PAYS_ENC": 0.002
+    },
+    "data_types": {
+      "AGE": "integer",
+      "DWT": "float",
+      "GRT": "float",
+      "Puissance_Moteur": "float",
+      "TYPE_ENCODED": "integer",
+      "is_IACS": "integer (0/1)",
+      "PAYS_ENC": "integer"
+    }
+  },
+  "model_parameters": {
+    "n_estimators": 1000,
+    "learning_rate": 0.03,
+    "max_depth": 6,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "objective": "reg:squarederror",
+    "random_state": 42,
+    "verbosity": 0
+  },
+  "preprocessing": {
+    "target_transformation": "log1p",
+    "target_inverse_transformation": "expm1",
+    "encoding_categorical": "LabelEncoder",
+    "encoding_applied": {
+      "TYPE": "TYPE_ENCODED",
+      "Pays_Construction": "PAYS_ENC"
+    },
+    "outlier_removal_method": "IQR",
+    "outlier_removal_multiplier": 1.5,
+    "outlier_cap_value": 10000
+  },
+  "comparison_with_baseline": {
+    "baseline_model": "RandomForestRegressor",
+    "baseline_r2_score": 0.6823,
+    "baseline_mae": 1804749.0,
+    "baseline_rmse": 2234812.0,
+    "improvement_r2_percent": 7.09,
+    "improvement_mae_percent": 4.77,
+    "winner": "XGBoost"
+  },
+  "model_characteristics": {
+    "advantages": [
+      "High precision (R² = 75.32%)",
+      "Efficient handling of missing values",
+      "Built-in regularization",
+      "Reduced overfitting",
+      "Fast inference time"
+    ],
+    "use_cases": [
+      "Insurance valuation estimation",
+      "Anomaly detection (over/undervalued ships)",
+      "Market analysis and trends",
+      "Decision support validation",
+      "Financial planning and forecasting"
+    ]
+  },
+  "training_info": {
+    "training_script": "training.py",
+    "data_file": "data_navire.csv",
+    "separator": ";",
+    "encoding": "utf-8",
+    "cv_folds": 5,
+    "random_seed": 42
+  },
+  "deployment_notes": {
+    "input_format": "pandas DataFrame or numpy array",
+    "input_shape": "(n_samples, 7)",
+    "output_format": "numpy array",
+    "output_unit": "USD (inverse log transformed)",
+    "model_format": "XGBoost native format (.pkl recommended)",
+    "python_version_required": "3.7+",
+    "memory_requirement_mb": 50
+  }
+}

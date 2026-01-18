@@ -1,0 +1,73 @@
+# Auto detect text files and normalize line endings to LF
+* text=auto
+
+# Python files
+*.py text eol=lf
+*.pyw text eol=lf
+*.pyc binary
+*.pyo binary
+*.pyd binary
+*.so binary
+*.egg binary
+*.egg-info/** text
+.Python text eol=lf
+
+# Jupyter Notebooks
+*.ipynb text eol=lf
+
+# Data files
+*.csv text
+*.json text eol=lf
+*.jsonl text eol=lf
+
+# Model files
+*.pkl binary
+*.joblib binary
+*.h5 binary
+*.model binary
+*.pickle binary
+
+# Compression
+*.zip binary
+*.tar binary
+*.tar.gz binary
+*.rar binary
+*.7z binary
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg text
+*.ico binary
+
+# Documentation
+*.md text eol=lf
+*.markdown text eol=lf
+*.txt text eol=lf
+*.rst text eol=lf
+LICENSE text eol=lf
+
+# Configuration files
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.cfg text eol=lf
+*.ini text eol=lf
+*.sh text eol=lf
+*.bash text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+# Environment files
+.env text eol=lf
+.envrc text eol=lf
+
+# Batch scripts
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.exe binary
+
+# Custom rules for the ships-value-prediction project
+ships-value-prediction/** text eol=lf

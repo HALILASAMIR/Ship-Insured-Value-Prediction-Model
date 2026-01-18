@@ -1,0 +1,163 @@
+# Ship Value Prediction - Git Ignore File
+
+# Environment
+.env
+.env.local
+.env.*.local
+venv/
+env/
+ENV/
+virtualenv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VS Code
+.vscode/
+*.code-workspace
+.history/
+
+# Models and data (optional - exclude large files)
+*.pkl
+*.joblib
+*.h5
+models/
+*.model
+
+# Cache
+.cache/
+.pytest_cache/
+.hypothesis/
+
+# IDE
+.sublime-project
+.sublime-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Testing
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Compiled files
+*.class
+*.o
+*.a
+*.lib
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Documentation
+docs/_build/
+site/
+
+# Misc
+.LSOverride
+.AppleDouble
+.AppleDB
+*.pem
+*.key
+*.cert
+
+# Data files (optional - exclude large CSV files)
+# *.csv
+# data/
+
+# Excel files
+*.xlsx
+*.xls
+
+# Configuration files with sensitive data
+config.local.*
+secrets.*
+
+# MacOS
+.DS_Store
+.AppleDouble
+.AppleDB
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+.directory
+.Trash-*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
