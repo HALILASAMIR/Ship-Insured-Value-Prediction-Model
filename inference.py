@@ -73,18 +73,16 @@ class ShipValuePredictor:
         except Exception as e:
             logger.error(f"Error loading config: {e}")
     
-    def validate_input(self, X: Union[np.ndarray, pd.DataFrame, Dict]) -> pd.DataFrame:
+    def validate_input(self, X: Union[np.ndarray, pd.DataFrame, Dict, List]) -> pd.DataFrame:
         """
         Validate and convert input data
-        
-        Args:
-            X: Input data (array, DataFrame, or dictionary)
-            
-        Returns:
-            pd.DataFrame: Validated input data
         """
         if isinstance(X, dict):
             X = pd.DataFrame([X])
+        # --- AJOUTE CES DEUX LIGNES CI-DESSOUS ---
+        elif isinstance(X, list):
+            X = pd.DataFrame(X)
+        # -----------------------------------------
         elif isinstance(X, np.ndarray):
             if X.ndim == 1:
                 X = X.reshape(1, -1)
@@ -92,9 +90,11 @@ class ShipValuePredictor:
         elif not isinstance(X, pd.DataFrame):
             raise TypeError(f"Unsupported input type: {type(X)}")
         
-        # Validate columns
+        # Validation des colonnes
         if self.feature_names and set(self.feature_names) != set(X.columns):
             logger.warning("Input columns don't match expected features")
+            # Optionnel : réordonner pour être sûr
+            X = X[self.feature_names]
         
         return X
     
