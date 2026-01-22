@@ -430,7 +430,7 @@ def main():
     save_model(rf_model, 'rf_model_v1', CONFIG['models_dir'])
     
     # Save results
-    save_results(trainer.results, Path(CONFIG['output_dir']) / 'results.json')
+    save_results(trainer.results, Path(CONFIG['output_dir']) / 'xgb_model_v1.json')
     
     # Visualizations
     viz = ModelVisualizer()
